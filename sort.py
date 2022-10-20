@@ -2,6 +2,13 @@ import pathlib
 import shutil
 import sys
 
+def main():
+    sort_folder = validation_path()
+    to_startfolder(sort_folder)
+    sort_main(sort_folder)
+    unpack_archive(sort_folder)
+    print('Sorting complite')
+
 
 def normalize(name):
 
@@ -52,6 +59,10 @@ def sort_main(get_path):
 
 
 def to_startfolder(get_path):
+    
+    if sort_folder == '':
+        sort_folder = get_path
+
 
     get_path = pathlib.Path(get_path).resolve()
     for elem in get_path.iterdir():
@@ -109,9 +120,5 @@ def validation_path():
 # MAIN 
 
 if __name__ == '__main__':
-    sort_folder = validation_path()
-    to_startfolder(sort_folder)
-    sort_main(sort_folder)
-    unpack_archive(sort_folder)
-    print('Sorting complite')
+    main()
     
