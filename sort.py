@@ -5,7 +5,7 @@ import sys
 def main():
     sort_folder = validation_path()
     to_startfolder(sort_folder)
-    sort_main(sort_folder)
+    sort_func(sort_folder)
     unpack_archive(sort_folder)
     print('Sorting complite')
 
@@ -32,7 +32,7 @@ def normalize(name):
     return normal_name
 
 
-def sort_main(get_path):
+def sort_func(get_path):
 
     get_path = pathlib.Path(get_path).resolve()
     archives = get_path / 'archives'
